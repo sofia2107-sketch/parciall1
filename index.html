@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Práctico - Diseño Web 2</title>
+    <!--recuerden vincular el archivo css con la ruta correspondiente-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <nav class="card nav-section">
+            <a href="#" class="link-inicio">Inicio</a>
+            <a href="https://github.com/sofia2107-sketch?tab=repositories" target="_blank" class="btn-github">Ver mi GitHub</a>
+            <button id="darkModeBtn">🌙 Modo Oscuro</button>
+        </nav>
+
+        <header class="card profile-section">
+            <div class="foto-perfil-wrapper">
+                <img src="img/img111.jpeg" alt="Mi Foto" class="profile-img">
+            </div>
+            <h2>Mi Perfil Profesional</h2>
+            <p class="description">
+                Durante este curso de Diseño Web 2, he desarrollado habilidades en la creación de páginas web por medio del uso de HTML y a mejorar mis destresas como diseñadora.
+            </p>
+        </header>
+
+        <section class="card">
+            <h3>Mis Hobbies</h3>
+            <p>Creación de contenido
+                Deporte
+                Edición de videos
+            </p>
+        </section>
+
+        <section class="card software-section">
+            <h3>Software de Diseño que manejo</h3>
+            <div class="software-grid">
+                
+                <div class="software-item">
+                    <img src="img/img222.webp" alt="Icono CapCut" class="software-icon">
+                    <span class="software-name">CapCut</span>
+                </div>
+                
+                <div class="software-item">
+                    <img src="img/images.png" alt="Icono AI" class="software-icon">
+                    <span class="software-name">Illustrator</span>
+                </div>
+                
+                <div class="software-item">
+                    <img src="img/img333.png" alt="Icono Photoshop" class="software-icon">
+                    <span class="software-name">Photoshop</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Lo que más me gusta de mi carrera</h3>
+            <ol class="lista-custom">
+                <li>Análisis de tendencias de mercado.</li>
+                <li>Creación de contenido creativo</li>
+                <li>Estrategias de contenido digital.</li>
+            </ol>
+        </section>
+
+        <section class="card highlight">
+            <h3>¿Qué más quiero aprender de Diseño Web?</h3>
+            <p>Me interesa mucho aprender sobre animaciones con CSS y diseño responsivo avanzado.</p>
+        </section>
+
+        <section class="card opinion-section">
+            <h3>Opinión sobre el Profesor</h3>
+            <p>"El profesor ha demostrado gran paciencia y dominio de los temas. Me gusta cómo explica los conceptos complejos de CSS de forma sencilla y siempre tiene un toque de humor en clase. Me cae bien y lo quiero mucho."</p>
+            
+            <div class="firma-wrapper">
+                <p>Atentamente: El alumno que quiere pasar el examen.</p>
+                <img src="img/img444.jpeg" alt="Firma del estudiante" class="firma-img">
+                <p class="profe-name">Prof. [Danna Sofia Espinosa Silva]</p>
+            </div>
+        </section>
+
+        <footer class="card footer-section">
+            <p>Sígueme en mis redes:</p>
+            <div class="social-links">
+                <a href="#" class="https://www.instagram.com/sofiaespinosap?igsh=MWh6bmM4cmM3Mzludw==">Instagram</a>
+                <a href="#" class="https://www.linkedin.com/in/danna-sof%C3%ADa-espinosa-silva-6421952a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
+            </div>
+        </footer>
+
+    </div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  // Selecciona todas las tarjetas
+  const hiddenElements = document.querySelectorAll('.card');
+  hiddenElements.forEach((el) => {
+    el.classList.add('hidden'); // Añade la clase oculta inicialmente
+    observer.observe(el);
+  });
+</script>
+<script>
+  const fecha = new Date();
+  const hora = fecha.getHours();
+  let saludo;
+
+  if (hora >= 6 && hora < 12) {
+    saludo = "¡Buenos días! 🌅";
+  } else if (hora >= 12 && hora < 18) {
+    saludo = "¡Buenas tardes! ☕";
+  } else {
+    saludo = "¡Buenas noches! 🌙";
+  }
+
+  // Cambia el texto del H2 en la sección de perfil
+  document.querySelector('.profile-section h2').textContent = saludo + " Bienvenido a mi Perfil";
+</script>
+<script>
+  const btn = document.getElementById('darkModeBtn');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    // Cambia el texto del botón
+    if(document.body.classList.contains('dark-theme')) {
+      btn.textContent = "☀️ Modo Claro";
+    } else {
+      btn.textContent = "🌙 Modo Oscuro";
+    }
+  });
+</script>
+</body>
+</html>
